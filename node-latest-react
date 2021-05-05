@@ -37,3 +37,4 @@ commands:
         type: exec
         command: npm start
         component: nodejs
+# https://stackoverflow.com/questions/62576256/how-do-i-load-a-dockerimage-in-eclipse-che
