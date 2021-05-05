@@ -1,0 +1,39 @@
+apiVersion: 1.0.0
+metadata:
+  name: react-yqa2e
+projects:
+  - name: react-redux-realworld-example-app
+    source:
+      location: 'https://github.com/gothinkster/react-redux-realworld-example-app'
+      type: git
+components:
+  - id: che-incubator/typescript/latest
+    type: chePlugin
+  - mountSources: true
+    endpoints:
+      - name: nodejs
+        port: 4100
+    command:
+      - tail
+    args:
+      - '-f'
+      - /dev/null
+    memoryLimit: 512Mi
+    type: dockerimage
+    image: 'node:latest'
+    alias: nodejs
+  - id: vscode/typescript-language-features/latest
+    type: chePlugin
+commands:
+  - name: install all required dependencies
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/react-redux-realworld-example-app'
+        type: exec
+        command: npm install
+        component: nodejs
+  - name: start the local server
+    actions:
+      - workdir: '${CHE_PROJECTS_ROOT}/react-redux-realworld-example-app'
+        type: exec
+        command: npm start
+        component: nodejs
