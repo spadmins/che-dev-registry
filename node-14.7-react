@@ -12,7 +12,7 @@ components:
   - type: dockerimage
     alias: nodejs
     # image: 'docker.io/library/node:14.17'
-    image : 'quay.io/app-sre/ubi8-nodejs-14'
+    image : 'quay.io/centos7/nodejs-14-centos7'
     memoryLimit: 512Mi
     endpoints:
       - name: nodejs
