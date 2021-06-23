@@ -11,7 +11,8 @@ components:
     id: che-incubator/typescript/latest
   - type: dockerimage
     alias: nodejs
-    image: 'docker.io/library/node:14.17'
+    # image: 'docker.io/library/node:14.17'
+    image : 'quay.io/app-sre/ubi8-nodejs-14'
     memoryLimit: 512Mi
     endpoints:
       - name: nodejs
